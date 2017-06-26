@@ -2,9 +2,24 @@
   "name": "react-universal",
   "version": "0.1.0",
   "private": true,
+  "main": "src/native/index.js",
+  "scripts": {
+    "start-web": "node scripts/start.js",
+    "build-web": "node scripts/build.js",
+    "test-web": "node scripts/test.js --env=jsdom",
+    "start-native": "react-native-scripts start",
+    "eject-native": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test-nativet": "node node_modules/jest/bin/jest.js --watch"
+  },
   "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "expo": "^17.0.0-rc.4",
+    "react": "16.0.0-alpha.6",
+    "react-dom": "16.0.0-alpha.6",
+    "react-native": "^0.44.3",
+    "react-primitives": "^0.4.2",
+    "styled-components": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer": "7.1.0",
@@ -30,12 +45,15 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.28.0",
     "jest": "20.0.3",
+    "jest-expo": "~17.0.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.0.0",
     "postcss-loader": "2.0.5",
     "promise": "7.1.1",
     "react-dev-utils": "^3.0.0",
     "react-error-overlay": "^1.0.7",
+    "react-native-scripts": "0.0.40",
+    "react-test-renderer": "16.0.0-alpha.12",
     "style-loader": "0.17.0",
     "sw-precache-webpack-plugin": "0.9.1",
     "url-loader": "0.5.8",
@@ -43,11 +61,6 @@
     "webpack-dev-server": "2.4.5",
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "2.0.3"
-  },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -72,7 +85,8 @@
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
-    }
+    },
+    "preset": "jest-expo"
   },
   "babel": {
     "presets": [
